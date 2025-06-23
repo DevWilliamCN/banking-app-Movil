@@ -11,7 +11,16 @@ export default StyleSheet.create({
   },
   header: {
     backgroundColor: "#0D47A1",
-    padding: 16,
+    paddingVertical: 16,
+    paddingHorizontal: 10,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 6,
+    zIndex: 10,
   },
   headerText: {
     color: "#fff",
@@ -28,6 +37,7 @@ export default StyleSheet.create({
     fontWeight: "700",
     color: "#0D47A1",
     marginBottom: 18,
+    textAlign: "center",
   },
   card: {
     backgroundColor: "#ffffff",
@@ -36,8 +46,8 @@ export default StyleSheet.create({
     marginBottom: 20,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.08,
-    shadowRadius: 4,
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
     elevation: 3,
     borderLeftWidth: 4,
     borderLeftColor: "#2196F3",
@@ -59,6 +69,7 @@ export default StyleSheet.create({
     fontWeight: "700",
     color: "#0D47A1",
     marginBottom: 18,
+    textAlign: "center",
   },
   label: {
     fontSize: 15,
@@ -79,6 +90,7 @@ export default StyleSheet.create({
     shadowOffset: { width: 0, height: 0.5 },
     shadowOpacity: 0.05,
     shadowRadius: 2,
+    elevation: 2,
   },
   picker: {
     backgroundColor: "#fff",
@@ -106,8 +118,6 @@ export default StyleSheet.create({
     fontWeight: "bold",
     letterSpacing: 0.5,
   },
-
-  // Footer corregido y mejorado
   footerSafe: {
     backgroundColor: "#0D47A1",
     paddingVertical: 10,
@@ -115,6 +125,13 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
+    alignSelf: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 4,
+    zIndex: 10,
   },
   footerText: {
     color: "#fff",

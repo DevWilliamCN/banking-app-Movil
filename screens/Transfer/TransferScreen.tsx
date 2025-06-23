@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   SafeAreaView,
   Platform,
+  StatusBar,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import styles from "./styles";
@@ -39,76 +40,93 @@ const TransferScreen = () => {
   };
 
   return (
-    <SafeAreaView style={styles.screen}>
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: "#0D47A1",
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+      }}
+    >
       <LinearGradient
         colors={["#ffffff", "#E3F2FD", "#0D47A1"]}
-        locations={[0, 0.25, 0.88]}
+        locations={[0, 0.5, 1]}
         style={{ flex: 1 }}
       >
-        <Header />
+        <View style={styles.wrapper}>
+          <Header />
 
-        <ScrollView contentContainerStyle={styles.content}>
-          <Text style={styles.sectionTitle}>Cuentas disponibles</Text>
+          <ScrollView contentContainerStyle={styles.content}>
+            <Text style={styles.sectionTitle}>Cuentas disponibles</Text>
 
-          <View style={styles.card}>
-            <Text style={styles.cardHeader}>Favoritos</Text>
-            <Text style={styles.listItem}>- Netflix</Text>
-            <Text style={styles.listItem}>- Spotify</Text>
-          </View>
-
-          <View style={styles.card}>
-            <Text style={styles.cardHeader}>Servicios Públicos</Text>
-            <Text style={styles.listItem}>- Kolbi</Text>
-            <Text style={styles.listItem}>- CNFL</Text>
-          </View>
-
-          <View style={styles.card}>
-            <Text style={styles.formTitle}>📲 Nueva Transferencia</Text>
-
-            <Text style={styles.label}>Beneficiario:</Text>
-            <View style={styles.picker}>
-              <Picker selectedValue={beneficiary} onValueChange={setBeneficiary}>
-                <Picker.Item label="Netflix" value="Netflix" />
-                <Picker.Item label="Spotify" value="Spotify" />
-                <Picker.Item label="Kolbi" value="Kolbi" />
-                <Picker.Item label="CNFL" value="CNFL" />
-              </Picker>
+            <View style={styles.card}>
+              <Text style={styles.cardHeader}>Favoritos</Text>
+              <Text style={styles.listItem}>- Netflix</Text>
+              <Text style={styles.listItem}>- Spotify</Text>
             </View>
 
-            <Text style={styles.label}>Número de cuenta o teléfono:</Text>
-            <TextInput
-              placeholder="Ej: 88885555"
-              keyboardType="number-pad"
-              style={styles.input}
-              value={targetNumber}
-              onChangeText={setTargetNumber}
-            />
-
-            <Text style={styles.label}>Monto:</Text>
-            <TextInput
-              placeholder="₡ o $"
-              keyboardType="numeric"
-              style={styles.input}
-              value={amount}
-              onChangeText={setAmount}
-            />
-
-            <Text style={styles.label}>Método de pago:</Text>
-            <View style={styles.picker}>
-              <Picker selectedValue={method} onValueChange={setMethod}>
-                <Picker.Item label="Cuenta Bancaria" value="Bank Account" />
-                <Picker.Item label="Tarjeta de Crédito" value="Credit Card" />
-                <Picker.Item label="Saldo Interno" value="Internal Balance" />
-              </Picker>
+            <View style={styles.card}>
+              <Text style={styles.cardHeader}>Servicios Públicos</Text>
+              <Text style={styles.listItem}>- Kolbi</Text>
+              <Text style={styles.listItem}>- CNFL</Text>
             </View>
 
-            <TouchableOpacity style={styles.button} onPress={handleTransfer}>
-              <Text style={styles.buttonText}>Transferir</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
+            <View style={styles.card}>
+              <Text style={styles.formTitle}>📲 Nueva Transferencia</Text>
 
-        <Footer />
+              <Text style={styles.label}>Beneficiario:</Text>
+              <View style={styles.picker}>
+                <Picker
+                  selectedValue={beneficiary}
+                  onValueChange={setBeneficiary}
+                >
+                  <Picker.Item label="Netflix" value="Netflix" />
+                  <Picker.Item label="Spotify" value="Spotify" />
+                  <Picker.Item label="Kolbi" value="Kolbi" />
+                  <Picker.Item label="CNFL" value="CNFL" />
+                </Picker>
+              </View>
+
+              <Text style={styles.label}>Número de cuenta o teléfono:</Text>
+              <TextInput
+                placeholder="Ej: 88885555"
+                keyboardType="number-pad"
+                style={styles.input}
+                value={targetNumber}
+                onChangeText={setTargetNumber}
+              />
+
+              <Text style={styles.label}>Monto:</Text>
+              <TextInput
+                placeholder="₡ o $"
+                keyboardType="numeric"
+                style={styles.input}
+                value={amount}
+                onChangeText={setAmount}
+              />
+
+              <Text style={styles.label}>Método de pago:</Text>
+              <View style={styles.picker}>
+                <Picker selectedValue={method} onValueChange={setMethod}>
+                  <Picker.Item label="Cuenta Bancaria" value="Bank Account" />
+                  <Picker.Item
+                    label="Tarjeta de Crédito"
+                    value="Credit Card"
+                  />
+                  <Picker.Item
+                    label="Saldo Interno"
+                    value="Internal Balance"
+                  />
+                </Picker>
+              </View>
+
+              <TouchableOpacity style={styles.button} onPress={handleTransfer}>
+                <Text style={styles.buttonText}>Transferir</Text>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
+
+          <Footer />
+        </View>
       </LinearGradient>
     </SafeAreaView>
   );

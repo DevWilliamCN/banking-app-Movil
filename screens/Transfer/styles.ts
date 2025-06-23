@@ -3,7 +3,11 @@ import { StyleSheet, Platform } from "react-native";
 export default StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#f4f6fc",
+    backgroundColor: "transparent",
+  },
+  wrapper: {
+    flex: 1,
+    justifyContent: "space-between",
   },
   content: {
     padding: 16,
@@ -11,14 +15,25 @@ export default StyleSheet.create({
   },
   header: {
     backgroundColor: "#0D47A1",
-    paddingVertical: 16,
+    paddingTop: Platform.OS === "ios" ? 40 : 20,
+    paddingBottom: 12,
     alignItems: "center",
     justifyContent: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.15,
+    shadowRadius: 6,
+    elevation: 6,
+    zIndex: 10,
   },
   headerText: {
-    color: "#fff",
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
+    color: "#fff",
+    textAlign: "center",
+    textShadowColor: "rgba(0,0,0,0.4)",
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   },
   sectionTitle: {
     fontSize: 20,
@@ -96,13 +111,23 @@ export default StyleSheet.create({
     paddingBottom: Platform.OS === "ios" ? 20 : 12,
     alignItems: "center",
     justifyContent: "center",
-    width: "100%", // 🔵 Garantiza ancho completo
+    width: "100%",
+    alignSelf: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: -1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 3,
+    elevation: 4,
+    zIndex: 10,
   },
   footerText: {
     color: "#fff",
     fontSize: 12,
     textAlign: "center",
     paddingHorizontal: 16,
-    maxWidth: "100%", // mejor ajuste
+    maxWidth: "100%",
+    textShadowColor: "#00000040",
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 2,
   },
 });
