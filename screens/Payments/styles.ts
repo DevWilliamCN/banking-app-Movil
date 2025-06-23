@@ -1,0 +1,122 @@
+import { StyleSheet } from "react-native";
+
+export default StyleSheet.create({
+  screen: {
+    flex: 1,
+    backgroundColor: "#f0f4fa",
+  },
+
+  wrapper: {
+    flex: 1,
+    justifyContent: "space-between",
+  },
+
+  content: {
+    padding: 20,
+    paddingBottom: 40,
+  },
+
+  sectionTitle: {
+    fontSize: 22,
+    fontWeight: "700",
+    color: "#0D47A1",
+    marginBottom: 18,
+  },
+
+  card: {
+    backgroundColor: "#ffffff",
+    padding: 20,
+    borderRadius: 16,
+    marginBottom: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.08,
+    shadowRadius: 4,
+    elevation: 3,
+    borderLeftWidth: 4,
+    borderLeftColor: "#2196F3",
+  },
+
+  cardHeader: {
+    fontSize: 17,
+    fontWeight: "bold",
+    color: "#1976D2",
+    marginBottom: 8,
+  },
+
+  listItem: {
+    fontSize: 15,
+    color: "#555",
+    marginLeft: 10,
+    marginBottom: 2,
+  },
+
+  formTitle: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: "#0D47A1",
+    marginBottom: 18,
+  },
+
+  label: {
+    fontSize: 15,
+    fontWeight: "600",
+    color: "#333",
+    marginBottom: 6,
+  },
+
+  input: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 15,
+    marginBottom: 18,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 0.5 },
+    shadowOpacity: 0.05,
+    shadowRadius: 2,
+  },
+
+  picker: {
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    borderColor: "#ccc",
+    borderWidth: 1,
+    marginBottom: 18,
+    overflow: "hidden",
+  },
+
+  button: {
+    backgroundColor: "#0D47A1",
+    paddingVertical: 16,
+    borderRadius: 14,
+    alignItems: "center",
+    marginTop: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 4,
+  },
+
+  buttonText: {
+    color: "#fff",
+    fontSize: 17,
+    fontWeight: "bold",
+    letterSpacing: 0.5,
+  },
+
+  footer: {
+    backgroundColor: "#0D47A1",
+    paddingVertical: 16,
+    alignItems: "center",
+  },
+
+  footerText: {
+    color: "#fff",
+    fontSize: 13,
+  },
+});
