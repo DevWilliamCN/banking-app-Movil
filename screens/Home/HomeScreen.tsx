@@ -63,8 +63,8 @@ export default function HomeScreen() {
         <ScrollView contentContainerStyle={{ paddingTop: 40, paddingBottom: 90 }}>
           {/* 💵 Balance */}
           <View style={[styles.header, { marginTop: 20 }]}>
-            <Text style={styles.balanceLabel}>Deposit</Text>
-            <Text style={styles.balance}>USD 40,900</Text>
+            <Text style={styles.balanceLabel}>Saldo Disponible</Text>
+            <Text style={styles.balance}>₡ 45,200.00</Text>
           </View>
 
           {/* 💳 Tarjeta VISA */}

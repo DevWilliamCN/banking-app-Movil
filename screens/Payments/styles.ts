@@ -1,28 +1,34 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 export default StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: "#f0f4fa",
   },
-
   wrapper: {
     flex: 1,
     justifyContent: "space-between",
   },
-
+  header: {
+    backgroundColor: "#0D47A1",
+    padding: 16,
+  },
+  headerText: {
+    color: "#fff",
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
   content: {
     padding: 20,
     paddingBottom: 40,
   },
-
   sectionTitle: {
     fontSize: 22,
     fontWeight: "700",
     color: "#0D47A1",
     marginBottom: 18,
   },
-
   card: {
     backgroundColor: "#ffffff",
     padding: 20,
@@ -36,35 +42,30 @@ export default StyleSheet.create({
     borderLeftWidth: 4,
     borderLeftColor: "#2196F3",
   },
-
   cardHeader: {
     fontSize: 17,
     fontWeight: "bold",
     color: "#1976D2",
     marginBottom: 8,
   },
-
   listItem: {
     fontSize: 15,
     color: "#555",
     marginLeft: 10,
     marginBottom: 2,
   },
-
   formTitle: {
     fontSize: 20,
     fontWeight: "700",
     color: "#0D47A1",
     marginBottom: 18,
   },
-
   label: {
     fontSize: 15,
     fontWeight: "600",
     color: "#333",
     marginBottom: 6,
   },
-
   input: {
     backgroundColor: "#fff",
     borderRadius: 12,
@@ -79,7 +80,6 @@ export default StyleSheet.create({
     shadowOpacity: 0.05,
     shadowRadius: 2,
   },
-
   picker: {
     backgroundColor: "#fff",
     borderRadius: 12,
@@ -88,7 +88,6 @@ export default StyleSheet.create({
     marginBottom: 18,
     overflow: "hidden",
   },
-
   button: {
     backgroundColor: "#0D47A1",
     paddingVertical: 16,
@@ -101,7 +100,6 @@ export default StyleSheet.create({
     shadowRadius: 4,
     elevation: 4,
   },
-
   buttonText: {
     color: "#fff",
     fontSize: 17,
@@ -109,14 +107,20 @@ export default StyleSheet.create({
     letterSpacing: 0.5,
   },
 
-  footer: {
+  // Footer corregido y mejorado
+  footerSafe: {
     backgroundColor: "#0D47A1",
-    paddingVertical: 16,
+    paddingVertical: 10,
+    paddingBottom: Platform.OS === "ios" ? 20 : 12,
     alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
   },
-
   footerText: {
     color: "#fff",
     fontSize: 13,
+    textAlign: "center",
+    paddingHorizontal: 16,
+    maxWidth: "100%",
   },
 });

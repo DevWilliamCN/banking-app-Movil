@@ -1,135 +1,108 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Platform } from "react-native";
 
 export default StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "#f0f4fa",
+    backgroundColor: "#f4f6fc",
   },
-
-  wrapper: {
-    flex: 1,
-    justifyContent: "space-between",
-  },
-
   content: {
-    padding: 20,
-    paddingBottom: 40,
+    padding: 16,
+    paddingBottom: 32,
   },
-
   header: {
     backgroundColor: "#0D47A1",
-    paddingVertical: 20,
+    paddingVertical: 16,
     alignItems: "center",
+    justifyContent: "center",
   },
-
   headerText: {
     color: "#fff",
     fontSize: 20,
     fontWeight: "bold",
   },
-
   sectionTitle: {
-    fontSize: 22,
-    fontWeight: "700",
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 12,
     color: "#0D47A1",
-    marginBottom: 18,
     textAlign: "center",
   },
-
   card: {
-    backgroundColor: "#ffffff",
-    padding: 20,
-    borderRadius: 16,
-    marginBottom: 20,
+    backgroundColor: "#fff",
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 16,
     shadowColor: "#000",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.08,
-    shadowRadius: 4,
+    shadowOpacity: 0.1,
+    shadowOffset: { width: 0, height: 2 },
+    shadowRadius: 6,
     elevation: 3,
-    borderLeftWidth: 4,
-    borderLeftColor: "#2196F3",
   },
-
   cardHeader: {
-    fontSize: 17,
+    fontSize: 16,
     fontWeight: "bold",
-    color: "#1976D2",
+    color: "#1565C0",
     marginBottom: 8,
   },
-
   listItem: {
-    fontSize: 15,
-    color: "#555",
-    marginLeft: 10,
-    marginBottom: 2,
-  },
-
-  formTitle: {
-    fontSize: 20,
-    fontWeight: "700",
-    color: "#0D47A1",
-    marginBottom: 18,
-  },
-
-  label: {
-    fontSize: 15,
-    fontWeight: "600",
+    fontSize: 14,
+    marginVertical: 2,
     color: "#333",
-    marginBottom: 6,
   },
-
+  formTitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    marginBottom: 12,
+    color: "#0D47A1",
+  },
+  label: {
+    fontSize: 14,
+    fontWeight: "bold",
+    marginTop: 10,
+    marginBottom: 4,
+    color: "#333",
+  },
   input: {
     backgroundColor: "#fff",
-    borderRadius: 12,
-    borderColor: "#ccc",
+    padding: 10,
+    borderRadius: 8,
     borderWidth: 1,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    fontSize: 15,
-    marginBottom: 18,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 0.5 },
-    shadowOpacity: 0.05,
-    shadowRadius: 2,
+    borderColor: "#ccc",
+    marginBottom: 10,
   },
-
   picker: {
     backgroundColor: "#fff",
-    borderRadius: 12,
-    borderColor: "#ccc",
+    borderRadius: 8,
     borderWidth: 1,
-    marginBottom: 18,
+    borderColor: "#ccc",
+    marginBottom: 10,
     overflow: "hidden",
   },
-
   button: {
     backgroundColor: "#0D47A1",
-    paddingVertical: 16,
-    borderRadius: 14,
+    padding: 12,
+    borderRadius: 8,
     alignItems: "center",
-    marginTop: 10,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 3 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 4,
+    marginTop: 16,
   },
-
   buttonText: {
     color: "#fff",
-    fontSize: 17,
     fontWeight: "bold",
-    letterSpacing: 0.5,
+    fontSize: 16,
   },
-
-  footer: {
+  footerSafe: {
     backgroundColor: "#0D47A1",
-    paddingVertical: 16,
+    paddingVertical: 10,
+    paddingBottom: Platform.OS === "ios" ? 20 : 12,
     alignItems: "center",
+    justifyContent: "center",
+    width: "100%", // 🔵 Garantiza ancho completo
   },
-
   footerText: {
     color: "#fff",
-    fontSize: 13,
+    fontSize: 12,
+    textAlign: "center",
+    paddingHorizontal: 16,
+    maxWidth: "100%", // mejor ajuste
   },
 });

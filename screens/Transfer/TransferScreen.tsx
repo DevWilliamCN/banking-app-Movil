@@ -6,9 +6,11 @@ import {
   ScrollView,
   TouchableOpacity,
   SafeAreaView,
+  Platform,
 } from "react-native";
 import { Picker } from "@react-native-picker/picker";
 import styles from "./styles";
+import { LinearGradient } from "expo-linear-gradient";
 
 const Header = () => (
   <View style={styles.header}>
@@ -17,7 +19,7 @@ const Header = () => (
 );
 
 const Footer = () => (
-  <View style={styles.footer}>
+  <View style={styles.footerSafe}>
     <Text style={styles.footerText}>
       © 2025 Desarrollador William Cubero. Todos los derechos reservados.
     </Text>
@@ -38,7 +40,11 @@ const TransferScreen = () => {
 
   return (
     <SafeAreaView style={styles.screen}>
-      <View style={styles.wrapper}>
+      <LinearGradient
+        colors={["#ffffff", "#E3F2FD", "#0D47A1"]}
+        locations={[0, 0.25, 0.88]}
+        style={{ flex: 1 }}
+      >
         <Header />
 
         <ScrollView contentContainerStyle={styles.content}>
@@ -61,10 +67,7 @@ const TransferScreen = () => {
 
             <Text style={styles.label}>Beneficiario:</Text>
             <View style={styles.picker}>
-              <Picker
-                selectedValue={beneficiary}
-                onValueChange={setBeneficiary}
-              >
+              <Picker selectedValue={beneficiary} onValueChange={setBeneficiary}>
                 <Picker.Item label="Netflix" value="Netflix" />
                 <Picker.Item label="Spotify" value="Spotify" />
                 <Picker.Item label="Kolbi" value="Kolbi" />
@@ -106,7 +109,7 @@ const TransferScreen = () => {
         </ScrollView>
 
         <Footer />
-      </View>
+      </LinearGradient>
     </SafeAreaView>
   );
 };
