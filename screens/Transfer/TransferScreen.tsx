@@ -1,46 +1,114 @@
-import React, { useContext, useState } from 'react';
-import { View, Text, TextInput, Button, Alert } from 'react-native';
-import styles from '../Transfer/styles';
-import { BankContext } from '../../contexts/BankContext';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  ScrollView,
+  TouchableOpacity,
+  SafeAreaView,
+} from "react-native";
+import { Picker } from "@react-native-picker/picker";
+import styles from "./styles";
 
-export default function TransferScreen({ navigation }: any) {
-  const bank = useContext(BankContext);
-  if (!bank) return null;
+const Header = () => (
+  <View style={styles.header}>
+    <Text style={styles.headerText}>💳 Transferencias</Text>
+  </View>
+);
 
-  const { transfer } = bank;
+const Footer = () => (
+  <View style={styles.footer}>
+    <Text style={styles.footerText}>
+      © 2025 Desarrollador William Cubero. Todos los derechos reservados.
+    </Text>
+  </View>
+);
 
-  const [amount, setAmount] = useState('');
-  const [description, setDescription] = useState('');
+const TransferScreen = () => {
+  const [beneficiary, setBeneficiary] = useState("Netflix");
+  const [amount, setAmount] = useState("");
+  const [method, setMethod] = useState("Bank Account");
+  const [targetNumber, setTargetNumber] = useState("");
 
   const handleTransfer = () => {
-    const num = parseFloat(amount);
-    if (!num || num <= 0) {
-      Alert.alert('Monto inválido');
-      return;
-    }
-
-    transfer(num, description || 'Transferencia sin descripción');
-    Alert.alert('Transferencia realizada');
-    navigation.navigate('Home');
+    alert(
+      `Transfiriendo ${amount} a ${beneficiary} usando ${method}, número: ${targetNumber}`
+    );
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Nueva transferencia</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Monto"
-        keyboardType="numeric"
-        value={amount}
-        onChangeText={setAmount}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Descripción"
-        value={description}
-        onChangeText={setDescription}
-      />
-      <Button title="Transferir" onPress={handleTransfer} />
-    </View>
+    <SafeAreaView style={styles.screen}>
+      <View style={styles.wrapper}>
+        <Header />
+
+        <ScrollView contentContainerStyle={styles.content}>
+          <Text style={styles.sectionTitle}>Cuentas disponibles</Text>
+
+          <View style={styles.card}>
+            <Text style={styles.cardHeader}>Favoritos</Text>
+            <Text style={styles.listItem}>- Netflix</Text>
+            <Text style={styles.listItem}>- Spotify</Text>
+          </View>
+
+          <View style={styles.card}>
+            <Text style={styles.cardHeader}>Servicios Públicos</Text>
+            <Text style={styles.listItem}>- Kolbi</Text>
+            <Text style={styles.listItem}>- CNFL</Text>
+          </View>
+
+          <View style={styles.card}>
+            <Text style={styles.formTitle}>📲 Nueva Transferencia</Text>
+
+            <Text style={styles.label}>Beneficiario:</Text>
+            <View style={styles.picker}>
+              <Picker
+                selectedValue={beneficiary}
+                onValueChange={setBeneficiary}
+              >
+                <Picker.Item label="Netflix" value="Netflix" />
+                <Picker.Item label="Spotify" value="Spotify" />
+                <Picker.Item label="Kolbi" value="Kolbi" />
+                <Picker.Item label="CNFL" value="CNFL" />
+              </Picker>
+            </View>
+
+            <Text style={styles.label}>Número de cuenta o teléfono:</Text>
+            <TextInput
+              placeholder="Ej: 88885555"
+              keyboardType="number-pad"
+              style={styles.input}
+              value={targetNumber}
+              onChangeText={setTargetNumber}
+            />
+
+            <Text style={styles.label}>Monto:</Text>
+            <TextInput
+              placeholder="₡ o $"
+              keyboardType="numeric"
+              style={styles.input}
+              value={amount}
+              onChangeText={setAmount}
+            />
+
+            <Text style={styles.label}>Método de pago:</Text>
+            <View style={styles.picker}>
+              <Picker selectedValue={method} onValueChange={setMethod}>
+                <Picker.Item label="Cuenta Bancaria" value="Bank Account" />
+                <Picker.Item label="Tarjeta de Crédito" value="Credit Card" />
+                <Picker.Item label="Saldo Interno" value="Internal Balance" />
+              </Picker>
+            </View>
+
+            <TouchableOpacity style={styles.button} onPress={handleTransfer}>
+              <Text style={styles.buttonText}>Transferir</Text>
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
+
+        <Footer />
+      </View>
+    </SafeAreaView>
   );
-}
+};
+
+export default TransferScreen;

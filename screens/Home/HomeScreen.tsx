@@ -4,9 +4,9 @@ import {
   Text,
   ScrollView,
   TouchableOpacity,
-  SafeAreaView,
   Platform,
   StatusBar,
+  SafeAreaView,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { Ionicons, MaterialCommunityIcons } from "@expo/vector-icons";
@@ -44,23 +44,24 @@ export default function HomeScreen() {
   ];
 
   return (
-    <LinearGradient
-      colors={["#ffffff", "#E3F2FD", "#0D47A1"]}
-      locations={[0, 0.25, 0.88]}
-      style={{ flex: 1 }}
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor: "#0D47A1",
+        paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+      }}
     >
-      <SafeAreaView
-        style={{
-          flex: 1,
-          paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
-        }}
+      <LinearGradient
+        colors={["#ffffff", "#E3F2FD", "#0D47A1"]}
+        locations={[0, 0.25, 0.88]}
+        style={{ flex: 1 }}
       >
         {/* 🔝 Header fijo */}
         <Header />
 
         {/* 🔃 Scroll de contenido */}
         <ScrollView contentContainerStyle={{ paddingTop: 40, paddingBottom: 90 }}>
-          {/* ⬇ Aquí aumentamos la separación superior del contenido interno */}
+          {/* 💵 Balance */}
           <View style={[styles.header, { marginTop: 20 }]}>
             <Text style={styles.balanceLabel}>Deposit</Text>
             <Text style={styles.balance}>USD 40,900</Text>
@@ -78,12 +79,7 @@ export default function HomeScreen() {
                 <View style={styles.chipLine} />
                 <View style={styles.chipLine} />
               </View>
-              <Ionicons
-                name="wifi"
-                size={20}
-                color="#fff"
-                style={styles.contactlessIcon}
-              />
+              <Ionicons name="wifi" size={20} color="#fff" style={styles.contactlessIcon} />
             </View>
             <Text style={styles.cardNumber}>5432 12785 45678 101**</Text>
             <Text style={styles.cardName}>John Doe</Text>
@@ -133,7 +129,7 @@ export default function HomeScreen() {
 
         {/* 🔻 Footer fijo */}
         <Footer />
-      </SafeAreaView>
-    </LinearGradient>
+      </LinearGradient>
+    </SafeAreaView>
   );
 }
