@@ -4,11 +4,6 @@ Una aplicación móvil tipo billetera digital desarrollada como parte de mi port
 
 ---
 
-## 🖼️ Capturas de pantalla
-
-*(Aquí podés insertar imágenes de las pantallas si gustás)*
-
----
 
 ## 🚀 Características
 
