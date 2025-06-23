@@ -87,7 +87,7 @@ Esto abrirá el navegador con el panel de control de Expo. Podés escanear el c�
 
 Desarrollado por **William Cubero**  
 🔗 [LinkedIn](https://www.linkedin.com/in/williamcubero)  
-📫 william.cubero.dev@gmail.com
+📫 w.cubero800@gmail.com
 
 ---
 
